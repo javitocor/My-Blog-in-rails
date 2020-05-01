@@ -1,29 +1,37 @@
 class DetailsController < ApplicationController
-    before_action :authenticate_user!
-    before_action :set_detail, only: [:edit, :update] 
+    before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
     def new 
+        @user = current_user
+        @detail = Detail.new(user_id: @user.id)
     end
 
-    def create 
-        @user = User.find
-        @detail = @user.detail.create(details_params)
+    def create
+        @detail = Detail.create(details_params)
     end
 
-    def edit 
+    def edit
+        @user = current_user
+        if @user.detail.nil?
+            @detail = Detail.create(user_id: @user.id)
+        else
+            @detail = Detail.find_by_user_id(params[:id])
+        end        
     end
 
-    def update 
-        @detail = @user.detail.update(details_params)
+    def update
+        @detail = Detail.find(params[:id])
+        @detail.update(details_params)
+        redirect_to current_user
     end
 
     private
 
     def details_params
-        params.require(:details).permit(:birthdate, :nationality, :definition, :employee, :income)
+        params.require(:detail).permit(:nationality, :definition, :employee, :income, :birthdate)
     end
 
     def set_detail
-        @detail = Detail.find(params[:id])
+        @detail = Detail.find(params[:user_id])
     end
 end

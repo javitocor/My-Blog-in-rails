@@ -1,4 +1,4 @@
-<%= simple_form_for([@user, @user.detail.build]) do |f| %>
+<%= simple_form_for(@user.detail) do |f| %>
 <!--
 collection.build(attributes = {}, …) Returns one or more new objects of the collection type that have been instantiated with attributes and linked to this object through a foreign key, but have not yet been saved. Note: This only works if an associated object already exists, not if it‘s nil!
 -->
@@ -10,13 +10,15 @@ collection.build(attributes = {}, …) Returns one or more new objects of the co
         <%= f.input :definition, wrapper: false, label_html: { class:"form-control" }, required: false  %>
     </div>
     <div class="form-group">
-        <%= f.input :birthdate, as: :date, wrapper: false, label_html: { class:"form-control" }, required: false  %>
+        <%= f.input :birthdate, as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12, order: [:day, :month, :year], wrapper: false,
+                               label_html: { class:"form-control" }, required: false  %>
     </div>
     <div class="form-group">
         <%= f.input :employee, as: :boolean, inline_label: 'Mark it if you are working', wrapper: false, label_html: { class:"form-control" }, required: false  %>
     </div>
     <div class="form-group">
-        <%= f.input :income, as: :float, wrapper: false, label_html: { class:"form-control" }, required: false  %>
+        <%= f.input :income, as: :decimal, wrapper: false, label_html: { class:"form-control" }, required: false  %>
     </div>
 </div>
 <%= f.button :submit, 'Update', class:"btn btn-primary" %>
