@@ -2,7 +2,7 @@
 <%= link_to 'Signup', new_user_registration_path %>
 <%= link_to 'Login', new_user_session_path %>
 <% else %>
-<%= link_to current_user.username, edit_user_registration_path %>
+<%= link_to current_user.username, current_user %>
 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 <% end %>
 <%= link_to 'Home', root_path %>
