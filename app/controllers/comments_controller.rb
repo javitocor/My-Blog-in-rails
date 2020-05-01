@@ -17,7 +17,8 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
     @comment.user_id = current_user.id
     @comment.save
-    redirect_to post_path (@comment.post)  
+    flash[:success] = "Comment created successfuly"
+    redirect_to post_path (@comment.post) 
   end
   # DELETE /comments/1
   # DELETE /comments/1.json

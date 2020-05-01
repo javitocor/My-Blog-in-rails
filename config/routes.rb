@@ -10,7 +10,12 @@ Rails.application.routes.draw do
     get '/login', to: 'devise/sessions#new'
     get '/signup', to: 'registrations#new'
     post '/login', to: 'devise/sessions#create'
+    authenticated :user do
+      root 'posts#index'
+    end  
+    unauthenticated do
+      root 'devise/sessions#new'
+    end
   end
   resources :users, only: [:show, :index]
-  root to: 'posts#index'
 end
