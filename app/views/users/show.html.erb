@@ -1,4 +1,19 @@
-<h2><%= current_user.username%> Profile</h2>
-
-<%= link_to 'Personal information', edit_detail_path(current_user) %>
-<%= link_to 'Edit account', edit_user_registration_path %>
+<div class="container">
+<div class="containertext-center">
+    <div class="card" style="width: 22rem; margin: 0 auto;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h2 class="card-title"><%= current_user.username%> Profile</h2>
+        <p class="card-text"><%= current_user.detail.definition %></p>
+        <p class="card-text">Nationality: <%= current_user.detail.nationality %></p>
+        <p class="card-text">Birthdate: <%= current_user.detail.birthdate %></p>
+        <p class="card-text">Income: <%= current_user.detail.income %></p>
+        <p class="card-text">Employee: <%= current_user.detail.employee %></p>
+        <%= link_to 'Personal information', edit_detail_path(current_user), class:"btn btn-success" %>
+        <%= link_to 'Edit account', edit_user_registration_path, class:"btn btn-success" %>
+    </div>
+    </div>
+</div>
+</div>
+<br>
+<br><br>
