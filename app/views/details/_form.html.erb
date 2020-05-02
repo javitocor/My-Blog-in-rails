@@ -1,25 +1,58 @@
-<%= simple_form_for(@user.detail) do |f| %>
-<!--
-collection.build(attributes = {}, …) Returns one or more new objects of the collection type that have been instantiated with attributes and linked to this object through a foreign key, but have not yet been saved. Note: This only works if an associated object already exists, not if it‘s nil!
--->
-<div>
-    <div class="form-group">
-        <%= f.input :nationality, wrapper: false, label_html: { class:"form-control" }, required: false %>
-    </div>
-    <div class="form-group">
-        <%= f.input :definition, wrapper: false, label_html: { class:"form-control" }, required: false  %>
-    </div>
-    <div class="form-group">
-        <%= f.input :birthdate, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 12, order: [:day, :month, :year], wrapper: false,
-                               label_html: { class:"form-control" }, required: false  %>
-    </div>
-    <div class="form-group">
-        <%= f.input :employee, as: :boolean, inline_label: 'Mark it if you are working', wrapper: false, label_html: { class:"form-control" }, required: false  %>
-    </div>
-    <div class="form-group">
-        <%= f.input :income, as: :decimal, wrapper: false, label_html: { class:"form-control" }, required: false  %>
-    </div>
+<div class="container">    
+            
+    <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Edit Personal Information</div>
+            </div>  
+            <div class="panel-body" >
+                            
+
+                    <%= simple_form_for @user.detail, defaults: { input_html: { class: 'w-50, input-md  textinput textInput ' } } do |f| %>
+                        <div id="div_id_username" class="form-group">
+                            <label for="id_username" class="control-label col-md-4  requiredField"> Nationality<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 ">
+                                <%= f.input :nationality, wrapper: false, label: false, required: false %>
+                            </div>
+                        </div>
+                        <div id="div_id_name" class="form-group"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Definition<span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8 "> 
+                                <%= f.input :definition, wrapper: false, label: false, required: false  %>
+                            </div>
+                        </div>
+                        <div id="div_id_name" class="form-group"> 
+                            <label for="id_name" class="control-label col-md-4  requiredField"> Birthdate<span class="asteriskField">*</span> </label> 
+                            <div class="controls col-md-8 "> 
+                                <%= f.input :birthdate, as: :date, start_year: Date.today.year - 90,
+                                                            end_year: Date.today.year - 12, order: [:day, :month, :year], wrapper: false,
+                                                            label: false, required: false  %>
+                            </div>
+                        </div>
+                        <div id="div_id_employee" class="form-group">
+                            <label for="id_employee"  class="control-label col-md-4  requiredField"> Employee<span class="asteriskField">*</span> </label>
+                            <div class="controls col-md-8 "  style="margin-bottom: 10px">
+                                 <label class="radio-inline"> <input type="radio" name="detail[employee]" value="1"  style="margin-bottom: 10px">Yes</label>
+                                 <label class="radio-inline"> <input type="radio" name="detail[employee]" value="0"  style="margin-bottom: 10px">No </label>
+                            </div>
+                        </div>
+                        <div id="div_id_number" class="form-group">
+                             <label for="id_number" class="control-label col-md-4  requiredField"> Income<span class="asteriskField">*</span> </label>
+                             <div class="controls col-md-8 ">
+                                 <%= f.input :income, as: :decimal, wrapper: false, label: false, required: false  %>
+                            </div> 
+                        </div>
+                        <br> 
+                        <br>
+                        <div class="form-group mt-5"> 
+                            <div class="aab controls col-md-4  mt-5"></div>
+                            <div class="controls col-md-8 mt-5">
+                                <%= f.button :submit, 'Update', class:"btn btn-success" %>
+                            </div>
+                        </div>                            
+                    <% end %>
+            </div>
+        </div>
+    </div> 
 </div>
-<%= f.button :submit, 'Update', class:"btn btn-primary" %>
-<% end %>
+</div>  
