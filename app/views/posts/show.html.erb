@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+<div class="card mb-4">
+<% if false %><%= image_tag ('gotham.jpg'),  class:"card-img-top", alt:"Gotham city" %><% end %>
+          <div class="card-body">
+            <h2 class="card-title"><%= @post.title %></h2>
+            <p class="card-text"><%= @post.body %></p>
+            <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-success" %>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on <%= @post.created_at %> By 
+            <a href="#"><%= @post.user.username %></a>
+          </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-<%= render 'comments/form' %>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= render 'comments/display'%>
+
+<%= link_to 'Back', posts_path, class:"btn btn-success" %>
+</div>

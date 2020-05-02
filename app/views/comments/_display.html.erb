@@ -1,0 +1,35 @@
+
+<div class="row bootstrap snippets d-flex justify-content-center mt-2 w-100">
+    <div class="col-md-6 col-md-offset-2 col-sm-12">
+        <div class="comment-wrapper">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Comments
+                </div>
+                <div class="panel-body">
+                    <%= render 'comments/form' %>
+                    <div class="panel-heading">
+                        This movie has 
+                        <%= @post.comments.count %>
+                        comments
+                    </div>                    
+                    <ul class="media-list">
+                    <% @post.comments.each do |comment| %>
+                        <li class="media">
+                            <div class="media-body">
+                                <span class="text-muted pull-right">
+                                    <small class="text-muted"><%= comment.created_at %></small>
+                                </span>
+                                <strong class="text-success"><%= comment.user.username %></strong>
+                                <p>
+                                    <%= comment.content %>.
+                                </p>
+                            </div>
+                        </li>
+                    <% end %>                            
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
