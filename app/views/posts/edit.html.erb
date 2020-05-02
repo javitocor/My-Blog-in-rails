@@ -1,6 +1,10 @@
+<div class="container">
+
 <h1>Editing Post</h1>
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Show', @post, class:"btn btn-success" %>
+<%= link_to 'Back to Home', posts_path, class:"btn btn-success" %>
+
+</div>
