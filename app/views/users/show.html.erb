@@ -3,11 +3,7 @@
 <div class="container">
 <div class="containertext-center">
     <div class="card" style="width: 22rem; margin: 0 auto;">
-    <% if current_user.avatar.attached? %>
-        <%= image_tag(current_user.avatar, class:'rounded') %>
-    <% else %>
-        <%= image_tag('gotham.jpg', size: "60x60!", class:'rounded') %>
-    <% end %>
+        <%= image_tag(user_avatar(current_user), size: "90!", class:'rounded-circle') %>
     <div class="card-body">
         <h2 class="card-title"><%= current_user.username%> Profile</h2>
         <% if !current_user.detail.nil? %>

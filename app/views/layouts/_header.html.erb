@@ -24,7 +24,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to current_user.username, current_user, class:"nav-link" %>
+            <%= link_to current_user, class:"nav-link" do %>
+              <%= current_user.username %>
+              <%= image_tag(user_avatar(current_user), size: "25", class:'rounded-circle') %>  
+            <% end %>          
           </li>
           <li class="nav-item">
             <%= link_to 'New Post', new_post_path, class:"nav-link" %>
