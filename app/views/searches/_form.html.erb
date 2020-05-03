@@ -8,7 +8,7 @@
 </form> -->
 
 
-<%= simple_form_for @search, method: :post do |f| %>
+<%= simple_form_for search_path, method: :get do |f| %>
   <%= f.input :search,     as: :search, class:"form-control", placeholder: "Search for..." %>
   <%= f.button :submit, class:"btn btn-outline-secondary" %>
 <% end %>

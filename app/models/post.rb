@@ -5,6 +5,6 @@ class Post < ApplicationRecord
     has_many :comments
 
     def self.search(search)  
-        where("lower(users.username) LIKE :search OR lower(posts.title) LIKE :search", search: "%#{search.downcase}%")
+        where("lower(users.username) LIKE :search OR lower(posts.title) LIKE :search OR lower(posts.body) LIKE :search", search: "%#{search.downcase}%")
     end
 end
