@@ -1,0 +1,27 @@
+<% if false %>
+<!-- <form action="/search" method="post" class="form-inline">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input class="form-control" name="search" type="search" placeholder="Search for..." aria-label="Search">
+                <span class="input-group-btn">
+                  <button class="btn btn-outline-secondary" type="submit">Go!</button> 
+                </span>
+</form> -->
+
+
+<%= simple_form_for @search, method: :post do |f| %>
+  <%= f.input :search,     as: :search, class:"form-control", placeholder: "Search for..." %>
+  <%= f.button :submit, class:"btn btn-outline-secondary" %>
+<% end %>
+
+<% end %>
+
+
+<%= form_tag(search_path, :method => "get",   
+    class: 'navbar-form navbar-left') do %>  
+  <div class="input-group">  
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>  
+    <div class="input-group-btn">  
+      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil %>  
+    </div>  
+  </div>  
+<% end %>

@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:show, :index]
+  get '/search', to: 'searches#search'
 end
