@@ -23,6 +23,18 @@
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
+  <% if resource.avatar.attached? %>
+  <%= image_tag resource.avatar, class:'rounded-circle' %>
+  <% else %>
+  <%= image_tag('gotham.jpg', size: "60x60!", class:'rounded-circle') %>
+  <% end %>
+  <div class="input-group">
+      <span class="input-group-btn">
+        <span class="btn btn-small btn-outline-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Add New Avatar</span>
+        <%= f.file_field :avatar, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+      </span>
+  </div>
+  <br>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>

@@ -4,6 +4,7 @@ class DetailsController < ApplicationController
     def new 
         @user = current_user
         @detail = Detail.new(user_id: @user.id)
+        @user.detail = @detail
     end
 
     def create
