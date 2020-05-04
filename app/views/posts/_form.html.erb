@@ -5,7 +5,8 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :body %>
+    <%= f.input :body, as: :text %>
+    <%= f.input :tag_list, placeholder: 'tag1, tag2' %>
   </div>
 
   <div class="form-actions">

@@ -6,6 +6,9 @@
           <div class="card-body">
             <h2 class="card-title"><%= @post.title %></h2>
             <p class="card-text"><%= @post.body %></p>
+            <% @post.tag_list.each do |tag| %>
+              <p class="card-text"><%= link_to tag, tag_path(ActsAsTaggableOn::Tag.find_by_name(tag)) %></p>
+            <% end %>
             <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-success" %>
           </div>
           <div class="card-footer text-muted">
