@@ -1,3 +1,4 @@
+<% provide(:title, "Search") %>
 <h3>Search Result</h3>  
     <% @results.each do |result| %>  
        <%= link_to result.title, post_path(result) %>  | <%= result.user.username %> <br>  
