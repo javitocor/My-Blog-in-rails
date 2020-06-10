@@ -1,6 +1,8 @@
 # My Blog in Rails
 A blog built up with ruby on rails from scratch as a practice
 
+![screenshot](/app/assets/images/screenshot.png)
+
 # What it does
 You can login, create and edit posts, update your account information and your personal information, add comments to the posts, and many other features. 
 
@@ -18,7 +20,7 @@ To get a local copy up and running follow these simple example steps.
 - Open your browser and type 'localhost:3000'
 
 # Prerequisites
-- Get the latest version of Ruby
+- Install Ruby's latest version
 
 # Author
 
