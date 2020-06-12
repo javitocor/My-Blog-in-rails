@@ -30,6 +30,11 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@JavierCorreas4](https://twitter.com/JavierCorreas4)
 - Linkedin: [Javier Oriol Correas Sanchez-Cuesta](https://www.linkedin.com/in/javier-correas-sanchez-cuesta-15289482/)
 
+# Future features
+- Add authentication with Facebook
+- Add like/dislike feature
+- Add follow users feature 
+
 # 🤝 Contributing
 Contributions, issues and feature requests are welcome! Start by:
 
