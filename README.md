@@ -1,5 +1,5 @@
 # My Blog in Rails
-A blog built up with ruby on rails from scratch as a practice
+A blog built up with ruby on rails from scratch as a practice.
 
 ![screenshot](/app/assets/images/screenshot.png)
 
